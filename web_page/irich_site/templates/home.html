@@ -1,0 +1,737 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IRICH Global Tech Ltd</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <style>
+    body {
+      position: relative;
+      scroll-behavior: smooth;
+    }
+
+    .service-card {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .service-card-img {
+      height: auto;
+      object-fit: cover;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+
+    .carousel {
+      background-color: #0d1b2a;
+    }
+
+    .carousel-item {
+      height: clamp(260px, 42vw, 560px);
+      position: relative;
+    }
+
+    .carousel-item img {
+      height: 100%;
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .carousel-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+          rgba(0, 0, 0, 0.78) 0%,
+          rgba(0, 0, 0, 0.38) 40%,
+          transparent 75%);
+      pointer-events: none;
+    }
+
+    .carousel-caption {
+      right: 8%;
+      bottom: 2rem;
+      left: 8%;
+      text-align: left;
+      z-index: 1;
+    }
+
+    .carousel-caption h2,
+    .carousel-caption p {
+      color: #fff !important;
+      text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.9);
+    }
+
+    .carousel-item.active .carousel-caption {
+      animation: banner-caption-enter 0.7s ease-out 0.2s both;
+    }
+
+    @keyframes banner-caption-enter {
+      from {
+        opacity: 0;
+        transform: translateY(1.25rem);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .carousel-item.active .carousel-caption {
+        animation: none;
+      }
+
+      .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .carousel-caption {
+        right: 1rem;
+        bottom: 1rem;
+        left: 1rem;
+        text-align: center;
+      }
+
+      .carousel-caption h2 {
+        font-size: 1.35rem;
+      }
+
+      .carousel-caption .lead {
+        font-size: 0.95rem;
+      }
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: #0d1b2a;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .stat-box {
+      border-radius: 0.5rem;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      background-color: #e9ecef;
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.06);
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(1.5rem);
+      transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 575.98px) {
+      .gallery-item {
+        aspect-ratio: 1 / 1;
+      }
+    }
+
+    .service-card {
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .floating-actions {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .floating-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #fff;
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+      text-decoration: none;
+    }
+
+    .floating-btn.whatsapp {
+      background-color: #25d366;
+    }
+
+    .floating-btn.call {
+      background-color: #0d1b2a;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: #0d1b2a;
+      color: #fff;
+    }
+
+    section[id],
+    div[id="home"] {
+      scroll-margin-top: 70px;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #0d6efd !important;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
+  <nav id="mainNav" class="navbar navbar-expand-lg bg-white shadow-sm">
+    <div class="container">
+      <a href="#home" class="navbar-brand fw-bold text-primary">IRICH <br />
+        <em>Global Tech Ltd</em>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title fw-bold text-primary" id="offcanvasNavbarLabel">
+            IRICH GLOBAL TECH L.T.D
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="#home" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#services" class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="#gallery" class="nav-link">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#faq" class="nav-link">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Slideshow Carousel -->
+  <div id="home" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-indicators">
+      {% if banners %} {% for banner in banners %}
+      <button type="button" data-bs-target="#home" data-bs-slide-to="{{ forloop.counter0 }}"
+        class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}"></button>
+      {% endfor %} {% else %}
+      <button type="button" data-bs-target="#home" data-bs-slide-to="0" class="active" aria-current="true"></button>
+      <button type="button" data-bs-target="#home" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#home" data-bs-slide-to="2"></button>
+      {% endif %}
+    </div>
+
+    <div class="carousel-inner">
+      {% if banners %} {% for banner in banners %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        {% if banner.image %}
+        <img src="{{ banner.image.url }}" class="d-block w-100 hero-slide-img" alt="{{ banner.title }}" />
+        {% else %}
+        <div class="d-block w-100 hero-slide-img bg-secondary"></div>
+        {% endif %}
+        <div class="carousel-caption p-2 p-md-3 pb-1 pb-md-2">
+          <h2 class="display-6 fw-bold text-white">{{ banner.title }}</h2>
+          {% if banner.subtitle %}
+          <p class="lead text-light mb-0">{{ banner.subtitle }}</p>
+          {% endif %}
+          <a href="#contact" class="btn btn-primary btn-lg mt-3 fw-semibold">Get a Free Quote</a>
+        </div>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#home" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#home" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <section id="services" class="py-5 bg-light">
+    <div class="container">
+      <h1 class="display-4 fw-bold text-primary">
+        Powering Homes & Businesses
+      </h1>
+      <p class="lead">Solar, Electrical & Energy Solutions in Benin City</p>
+    </div>
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        {% for item in services %}
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-3">
+          <div class="card h-100 service-card shadow-sm">
+            {% if item.image %}
+            <img src="{{ item.image.url }}" class="card-img-top service-card-img" alt="{{ item.name }}" />
+            {% endif %}
+            <div class="card-body p-2 text-center">
+              <h6 class="card-title fw-bold text-primary mb-1">
+                {{ item.name }}
+              </h6>
+              <p class="card-text text-muted small mb-0">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold text-primary mb-5">How It Works</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="d-flex gap-3">
+            <div class="step-number">1</div>
+            <div>
+              <h5 class="fw-bold mb-1">Free Site Assessment</h5>
+              <p class="text-muted mb-0">
+                We evaluate your property and energy needs at no cost.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex gap-3">
+            <div class="step-number">2</div>
+            <div>
+              <h5 class="fw-bold mb-1">Custom Design &amp; Quote</h5>
+              <p class="text-muted mb-0">
+                Get a system sized precisely to your usage and budget.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex gap-3">
+            <div class="step-number">3</div>
+            <div>
+              <h5 class="fw-bold mb-1">Professional Installation</h5>
+              <p class="text-muted mb-0">
+                Certified engineers handle setup, permits, and testing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="fw-bold text-primary mb-3">About Us</h2>
+          <p class="text-muted">
+            IRICH Global Tech Ltd is a Benin City-based solar and electrical
+            engineering company dedicated to delivering reliable, affordable
+            clean energy solutions for homes and businesses across Nigeria.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4 mb-5 text-center">
+        <div class="col-6 col-md-3">
+          <div class="stat-box bg-white p-4">
+            <h3 class="fw-bold text-primary mb-0">10+</h3>
+            <p class="text-muted mb-0">Years Experience</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-box bg-white p-4">
+            <h3 class="fw-bold text-primary mb-0">500+</h3>
+            <p class="text-muted mb-0">Installations</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-box bg-white p-4">
+            <h3 class="fw-bold text-primary mb-0">25yr</h3>
+            <p class="text-muted mb-0">Panel Warranty</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-box bg-white p-4">
+            <h3 class="fw-bold text-primary mb-0">24/7</h3>
+            <p class="text-muted mb-0">Support</p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-sm border-0">
+            <div class="card-body text-center p-4">
+              <p class="fst-italic text-muted mb-3">
+                "Our electricity bill dropped by over 60% within the first
+                month. The team was professional from start to finish."
+              </p>
+              <h6 class="fw-bold mb-0 text-primary">Daniel O. Benin City</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold text-primary mb-2">Our Recent Work</h2>
+      <p class="text-center text-muted mb-5">
+        A look at some of the installations we've completed
+      </p>
+      <div class="row g-3">
+        {% for photo in projects %}
+        <div class="col-md-4 col-6">
+          <div class="gallery-item">
+            {% if photo.image %}
+            <img src="{{ photo.image.url }}" class="gallery-img" alt="{{ photo.title|default:'Solar installation' }}"
+              loading="lazy" />
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center fw-bold text-primary mb-5">
+        Frequently Asked Questions
+      </h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  How much does solar installation cost?
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Cost depends on your property size and energy needs. Our
+                  free site assessment gives you an accurate, no-obligation
+                  quote tailored to you.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq2">
+                  How long does installation take?
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Most residential installations are completed within 2-5
+                  days, depending on system size and roof complexity.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq3">
+                  Do you offer financing or payment plans?
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Yes, we offer flexible payment plans to make going solar
+                  more accessible. Speak with our team to find an option that
+                  fits your budget.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq4">
+                  What warranty do you provide?
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  Our panels come with a 25-year manufacturer warranty, and
+                  installation workmanship is covered for 5 years.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq5">
+                  Do you service areas outside Benin City?
+                </button>
+              </h2>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted">
+                  We primarily serve Benin City and surrounding areas in Edo
+                  State. Contact us to confirm availability in your location.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold text-primary mb-5">Get In Touch</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4 text-center">
+          <i class="bi bi-geo-alt-fill fs-2 text-primary"></i>
+          <h6 class="fw-bold mt-2 mb-1">Address</h6>
+          <p class="text-muted small mb-0">Benin City, Edo State, Nigeria</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <i class="bi bi-telephone-fill fs-2 text-primary"></i>
+          <h6 class="fw-bold mt-2 mb-1">Phone</h6>
+          <p class="text-muted small mb-0">
+            <a href="tel:+2347050338828" class="text-muted text-decoration-none">+234 705 033 8828</a>
+          </p>
+        </div>
+        <div class="col-md-4 text-center">
+          <i class="bi bi-envelope-fill fs-2 text-primary"></i>
+          <h6 class="fw-bold mt-2 mb-1">Email</h6>
+          <p class="text-muted small mb-0">
+            <a href="mailto:uyi.izekor47@gmail.com" class="text-muted text-decoration-none">uyi.izekor47@gmail.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-6">
+          <form id="contactForm">
+            <div class="mb-3">
+              <input type="text" name="name" class="form-control" placeholder="Full Name" required />
+            </div>
+            <div class="mb-3">
+              <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required />
+            </div>
+            <div class="mb-3">
+              <textarea name="message" class="form-control" rows="4" placeholder="How can we help?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 btn-lg fw-semibold">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="messageSuccessModal" tabindex="-1" aria-labelledby="messageSuccessModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-body text-center p-4 p-md-5">
+          <i class="bi bi-check-circle-fill text-success display-4" aria-hidden="true"></i>
+          <h3 class="mt-3" id="messageSuccessModalTitle">WhatsApp opened!</h3>
+          <p class="text-muted mb-4">Your message is ready in WhatsApp. Tap Send there to deliver it to our team.</p>
+          <button type="button" class="btn btn-primary px-4" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Action Buttons -->
+  <div class="floating-actions">
+    <a href="https://wa.me/2347050338828" class="floating-btn whatsapp" target="_blank" rel="noopener"
+      aria-label="Chat on WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="tel:+2347050338828" class="floating-btn call" aria-label="Call us">
+      <i class="bi bi-telephone-fill"></i>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-5" style="background-color: #0d1b2a; color: #fff">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 class="fw-bold">IRICH <em>Global Tech Ltd</em></h5>
+          <p class="text-secondary small mb-0">
+            Solar, Electrical &amp; Energy Solutions in Benin City.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="fw-bold">Quick Links</h6>
+          <ul class="list-unstyled small">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6 class="fw-bold">Follow Us</h6>
+          <div class="d-flex gap-3 fs-5">
+            <a href="#"><i class="bi bi-facebook"></i>Facebook</a>
+            <a href="#"><i class="bi bi-instagram"></i>Instagram</a>
+            <a href="#"><i class="bi bi-twitter-x"></i>X</a>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary my-4" />
+      <p class="text-center small text-secondary mb-0">
+        © 2026 IRICH Global Tech Ltd. All rights reserved.
+      </p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document
+      .querySelectorAll("#offcanvasNavbar .nav-link")
+      .forEach(function (link) {
+        link.addEventListener("click", function () {
+          var panel = document.getElementById("offcanvasNavbar");
+          if (panel && window.bootstrap) {
+            var instance =
+              bootstrap.Offcanvas.getInstance(panel) ||
+              new bootstrap.Offcanvas(panel);
+            instance.hide();
+          }
+        });
+      });
+
+    var revealItems = document.querySelectorAll(
+      "#services .service-card, .step-number, #about .stat-box, #about .card, #gallery .gallery-item, #faq .accordion-item, #contact .row > div",
+    );
+    var prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!prefersReducedMotion && "IntersectionObserver" in window) {
+      var revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+
+      revealItems.forEach(function (item, index) {
+        item.classList.add("scroll-reveal");
+        item.style.transitionDelay = (index % 4) * 90 + "ms";
+        revealObserver.observe(item);
+      });
+    }
+
+    var contactForm = document.getElementById("contactForm");
+    var successModalElement = document.getElementById("messageSuccessModal");
+
+    if (contactForm && successModalElement && window.bootstrap) {
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!contactForm.checkValidity()) {
+          contactForm.reportValidity();
+          return;
+        }
+
+        var formData = new FormData(contactForm);
+        var whatsappMessage = [
+          "Hello IRICH Global Tech Ltd,",
+          "",
+          "Name: " + formData.get("name"),
+          "Phone: " + formData.get("phone"),
+          "",
+          "Message:",
+          formData.get("message"),
+        ].join("\\n");
+
+        window.open(
+          "https://wa.me/2349169042283?text=" + encodeURIComponent(whatsappMessage),
+          "_blank",
+          "noopener",
+        );
+        contactForm.reset();
+        bootstrap.Modal.getOrCreateInstance(successModalElement).show();
+      });
+    }
+  </script>
+</body>
+
+</html>
