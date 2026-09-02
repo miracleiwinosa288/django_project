@@ -1,0 +1,14 @@
+[
+  {"model": "irich_site.banner", "pk": 2, "fields": {"title": "Premium Services", "subtitle": "We use our best personel at field", "image": "banners/IMG_E28831.JPG", "active": true}},
+  {"model": "irich_site.banner", "pk": 3, "fields": {"title": "Global Recognition", "subtitle": "We are known both Local and International", "image": "banners/FSGY54601.JPG", "active": true}},
+  {"model": "irich_site.banner", "pk": 5, "fields": {"title": "Panels On Roof", "subtitle": "Clean installation on roof expert to avoid leakage", "image": "banners/be3f1410-82c3-4e96-a6b4-f9f1348c41c2.jpg", "active": true}},
+  {"model": "irich_site.banner", "pk": 6, "fields": {"title": "Utility-Scale Solar Farm", "subtitle": "Large-scale solar panel installation for clean and sustainable energy generation", "image": "banners/solar_farm.webp", "active": true}},
+  {"model": "irich_site.service", "pk": 1, "fields": {"name": "Solar Installation", "description": "installed a solar system with clients budget", "image": "services/VFON65171.JPG"}},
+  {"model": "irich_site.service", "pk": 2, "fields": {"name": "Residential Solar Power System Installation", "description": "Some of our Experienced worker at work", "image": "services/be3f1410-82c3-4e96-a6b4-f9f1348c41c2.jpg"}},
+  {"model": "irich_site.project", "pk": 2, "fields": {"title": "Low voltage system", "image": "projects/f760b965-d24f-4e0a-a5b1-6dec4faeab0f.jpg", "description": "system installed for domestic use"}},
+  {"model": "irich_site.project", "pk": 3, "fields": {"title": "solar system", "image": "projects/IMG_0106.jpeg", "description": "system"}},
+  {"model": "irich_site.project", "pk": 4, "fields": {"title": "system", "image": "", "description": "system"}},
+  {"model": "irich_site.project", "pk": 5, "fields": {"title": "system", "image": "projects/0d55e5af-185c-43a2-a934-0596c17d73ce.jpg", "description": "system"}},
+  {"model": "irich_site.project", "pk": 6, "fields": {"title": "image", "image": "projects/IMG_3573.WEBP.webp", "description": "image"}},
+  {"model": "irich_site.project", "pk": 7, "fields": {"title": "sako inverter", "image": "projects/sako.webp", "description": "system"}}
+]

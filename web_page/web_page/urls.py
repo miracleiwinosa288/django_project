@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+import os
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,5 +25,5 @@ urlpatterns = [
     path('', include('irich_site.urls'))
 ]
 
-if settings.DEBUG:
+if settings.DEBUG or os.environ.get('SERVE_MEDIA_WITH_DJANGO', '').lower() == 'true':
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
