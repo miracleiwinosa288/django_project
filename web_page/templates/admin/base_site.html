@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} | IRICH Control Centre{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'admin/css/irich-admin.css' %}">
+{% endblock %}
+
+{% block branding %}
+<div id="site-name">
+  <a href="{% url 'admin:index' %}">
+    <span class="brand-mark">i</span>
+    <span>IRICH <small>CONTROL CENTRE</small></span>
+  </a>
+</div>
+{% endblock %}
+
+{% block usertools %}
+{{ block.super }}
+{% endblock %}
