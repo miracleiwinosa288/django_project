@@ -13,13 +13,3 @@ def home(request):
         'banners': banners,
     }
     return render(request, 'home.html', context)
-
-
-def services(request):
-    services = Service.objects.all()
-    projects = Project.objects.all()
-    context = {
-        'services': services,
-        'projects': projects,
-    }
-    return render(request, 'services.html', context)

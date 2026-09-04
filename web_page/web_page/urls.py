@@ -19,11 +19,20 @@ import os
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import StaticViewSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('irich_site.urls'))
+    path('', include('irich_site.urls')),
+    path('sitemap.xml', sitemap, {
+         'sitemaps': sitemaps}, name='django-sitemap'),
 ]
 
 if settings.DEBUG or os.environ.get('SERVE_MEDIA_WITH_DJANGO', '').lower() == 'true':
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
