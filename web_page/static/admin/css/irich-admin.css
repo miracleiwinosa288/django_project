@@ -36,6 +36,12 @@ div.dashboard .module table th a { color: var(--primary-deep); }
 div.dashboard .module table td a { color: var(--primary); font-weight: 650; }
 .addlink, a.addlink { color: var(--primary); }
 .button, input[type=submit], input[type=button], .submit-row input, a.button {
+  box-sizing: border-box;
+  display: inline-block;
+  width: fit-content;
+  min-height: 0;
+  padding: 8px 12px;
+  line-height: 1.2;
   border: 1px solid transparent;
   border-radius: 5px;
   background: var(--primary);
