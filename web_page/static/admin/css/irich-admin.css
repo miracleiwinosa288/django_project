@@ -35,10 +35,20 @@ div.breadcrumbs a { color: var(--primary); }
 div.dashboard .module table th a { color: var(--primary-deep); }
 div.dashboard .module table td a { color: var(--primary); font-weight: 650; }
 .addlink, a.addlink { color: var(--primary); }
-.button, input[type=submit], input[type=button], .submit-row input, a.button { border: 0; border-radius: 8px; background: var(--primary); box-shadow: 0 3px 8px rgba(19, 93, 156, .2); transition: transform .16s ease, background .16s ease; }
-.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, a.button:hover { background: var(--primary-deep); transform: translateY(-1px); }
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: var(--primary);
+  box-shadow: none;
+  font-weight: 600;
+  transition: background .16s ease, border-color .16s ease;
+}
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, a.button:hover { background: var(--primary-deep); }
+.button.default, input[type=submit].default, .submit-row input.default { background: var(--accent); color: #073d35; }
+.button.default:hover, input[type=submit].default:hover, .submit-row input.default:hover { background: #22aa93; }
+.button.deletelink, a.deletelink { background: transparent; border-color: #bd4a4a; color: #a92e2e; }
+.button.deletelink:hover, a.deletelink:hover { background: #fff1f1; color: #8d1f1f; }
 .submit-row { padding: 14px; background: #fff; }
-.submit-row input.default { background: var(--accent); color: #073d35; }
 
 input, textarea, select, .vTextField { border: 1px solid #c7d6e4; border-radius: 8px; padding: 8px 10px; background: #fff; }
 input:focus, textarea:focus, select:focus { border-color: var(--accent); outline: 3px solid rgba(47, 192, 168, .16); }
