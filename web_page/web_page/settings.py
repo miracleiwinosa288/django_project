@@ -1,6 +1,7 @@
 import os
 import secrets
 import dj_database_url
+import cloudinary
 """
 Django settings for web_page project.
 
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -143,6 +145,16 @@ STORAGES = {
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.environ.get('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+cloudinary.config(
+    cloud_name=os.environ.get('uk8rvcbf'),
+    api_key=os.environ.get('241699628983238'),
+    api_secret=os.environ.get('nlg-QoHb6f3yGtldWCs-Qlt019s'),
+    secure=True
+)
+
 
 # Render terminates HTTPS before forwarding requests to this application.
 if os.environ.get('RENDER'):
