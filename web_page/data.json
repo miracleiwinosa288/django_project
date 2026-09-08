@@ -1,0 +1,661 @@
+[
+{
+  "model": "irich_site.banner",
+  "pk": 2,
+  "fields": {
+    "title": "Premium Services",
+    "subtitle": "We use our best personel at field",
+    "image": "banners/IMG_E28831.JPG",
+    "active": true
+  }
+},
+{
+  "model": "irich_site.banner",
+  "pk": 3,
+  "fields": {
+    "title": "Global Recognition",
+    "subtitle": "We are known both Local and International",
+    "image": "banners/FSGY54601.JPG",
+    "active": true
+  }
+},
+{
+  "model": "irich_site.banner",
+  "pk": 5,
+  "fields": {
+    "title": "Panels On Roof",
+    "subtitle": "Clean installation on roof expert to avoid leakage",
+    "image": "banners/be3f1410-82c3-4e96-a6b4-f9f1348c41c2.jpg",
+    "active": true
+  }
+},
+{
+  "model": "irich_site.banner",
+  "pk": 6,
+  "fields": {
+    "title": "Utility-Scale Solar Farm",
+    "subtitle": "Large-scale solar panel installation for clean and sustainable energy generation",
+    "image": "banners/solar_farm.webp",
+    "active": true
+  }
+},
+{
+  "model": "irich_site.service",
+  "pk": 1,
+  "fields": {
+    "name": "Solar Installation",
+    "description": "installed a solar system with clients budget",
+    "image": "services/VFON65171.JPG"
+  }
+},
+{
+  "model": "irich_site.service",
+  "pk": 2,
+  "fields": {
+    "name": "Residential Solar Power System Installation",
+    "description": "Some of our Experienced worker at work",
+    "image": "services/be3f1410-82c3-4e96-a6b4-f9f1348c41c2.jpg"
+  }
+},
+{
+  "model": "irich_site.project",
+  "pk": 2,
+  "fields": {
+    "title": "Low voltage system",
+    "image": "projects/f760b965-d24f-4e0a-a5b1-6dec4faeab0f.jpg",
+    "description": "system installed for domestic use"
+  }
+},
+{
+  "model": "irich_site.project",
+  "pk": 3,
+  "fields": {
+    "title": "solar system",
+    "image": "projects/IMG_0106.jpeg",
+    "description": "system"
+  }
+},
+{
+  "model": "irich_site.project",
+  "pk": 4,
+  "fields": {
+    "title": "system",
+    "image": "",
+    "description": "system"
+  }
+},
+{
+  "model": "irich_site.project",
+  "pk": 5,
+  "fields": {
+    "title": "system",
+    "image": "projects/0d55e5af-185c-43a2-a934-0596c17d73ce.jpg",
+    "description": "system"
+  }
+},
+{
+  "model": "irich_site.project",
+  "pk": 6,
+  "fields": {
+    "title": "image",
+    "image": "projects/IMG_3573.WEBP.webp",
+    "description": "image"
+  }
+},
+{
+  "model": "irich_site.project",
+  "pk": 7,
+  "fields": {
+    "title": "sako inverter",
+    "image": "projects/sako.webp",
+    "description": "system"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$XYcuN9BhiiT0gN2G5j15Zn$33w6iIsAJblva2b35SQpxX6rNUXl2twaUQuIUfOxmM0=",
+    "last_login": "2026-08-19T22:37:27.708Z",
+    "is_superuser": true,
+    "username": "liptin",
+    "first_name": "",
+    "last_name": "",
+    "email": "liptinlaxy288@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-08-19T22:34:54.676Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "j0p199mz8nihoqtc7ywaphhxnjfxat0v",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAGCFSX7j0DmWEGqRqalHZlvLsh6UK3_7333yrhvtW0d1nTzOqiQJ1-N8L8lDYAP7DdF52Xtq0z6aHog3Z9W1he18P9O6jY66g5gPcsQlFsIS94tjIFmsRApMgU0BTnMkQfpZQAmJ0FcqawB8Nefb4P9Tiv:1wwouV:lOlrk4e4zdIPqk0-sk14WMsmIBAWRG9DGvEzBxvx_nI",
+    "expire_date": "2026-09-02T22:37:27.916Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-08-20T10:52:45.993Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "service"
+    ],
+    "object_id": "1",
+    "object_repr": "solar installation",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-08-20T11:29:11.752Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "service"
+    ],
+    "object_id": "1",
+    "object_repr": "solar installation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-08-20T14:01:25.310Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "1",
+    "object_repr": "home page",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-08-20T14:03:31.048Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "1",
+    "object_repr": "home page",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-08-20T14:14:34.860Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "2",
+    "object_repr": "premium services",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-08-20T14:46:41.895Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "3",
+    "object_repr": "We Are Recongnised",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-08-20T14:57:04.641Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "1",
+    "object_repr": "home page",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-08-20T15:06:22.076Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "4",
+    "object_repr": "Off Grid/ On Grid",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-08-20T20:00:07.526Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "3",
+    "object_repr": "Global Recognition",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-08-20T21:23:46.790Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "5",
+    "object_repr": "Start",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-08-21T20:00:01.178Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "5",
+    "object_repr": "Start",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-08-29T18:19:30.745Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "project"
+    ],
+    "object_id": "1",
+    "object_repr": "Solar PV System Installation & Commissioning",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-08-29T19:02:52.802Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "service"
+    ],
+    "object_id": "2",
+    "object_repr": "Residential Solar Power System Installation",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-08-31T10:42:36.727Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "project"
+    ],
+    "object_id": "1",
+    "object_repr": "Solar PV System Installation & Commissioning",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-08-31T11:05:50.786Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "5",
+    "object_repr": "Panels On Roof",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-08-31T11:07:31.572Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "5",
+    "object_repr": "Panels On Roof",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Subtitle\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-08-31T20:22:04.570Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "project"
+    ],
+    "object_id": "2",
+    "object_repr": "Low voltage system",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-08-31T20:29:43.062Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "project"
+    ],
+    "object_id": "3",
+    "object_repr": "solar system",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-08-31T20:31:40.025Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "project"
+    ],
+    "object_id": "4",
+    "object_repr": "system",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-08-31T20:34:09.228Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "project"
+    ],
+    "object_id": "5",
+    "object_repr": "system",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-08-31T20:50:44.301Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "5",
+    "object_repr": "Panels On Roof",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Subtitle\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-08-31T20:51:29.447Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "2",
+    "object_repr": "Premium Services",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-08-31T20:52:29.576Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "4",
+    "object_repr": "Off Grid/ On Grid",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-08-31T20:52:58.129Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "service"
+    ],
+    "object_id": "1",
+    "object_repr": "Solar Installation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-09-02T10:00:24.699Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "6",
+    "object_repr": "Utility-Scale Solar Farm",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-09-02T10:02:29.539Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "banner"
+    ],
+    "object_id": "4",
+    "object_repr": "Off Grid/ On Grid",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-09-02T11:30:06.415Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "project"
+    ],
+    "object_id": "6",
+    "object_repr": "image",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-09-02T12:02:09.180Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "project"
+    ],
+    "object_id": "7",
+    "object_repr": "sako inverter",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-09-02T12:21:42.283Z",
+    "user": [
+      "liptin"
+    ],
+    "content_type": [
+      "irich_site",
+      "project"
+    ],
+    "object_id": "4",
+    "object_repr": "system",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+}
+]
