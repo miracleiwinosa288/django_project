@@ -1,7 +1,6 @@
 import os
 import secrets
 import dj_database_url
-import cloudinary
 """
 Django settings for web_page project.
 
@@ -51,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -136,24 +136,21 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.environ.get('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-cloudinary.config(
-    cloud_name=os.environ.get('uk8rvcbf'),
-    api_key=os.environ.get('241699628983238'),
-    api_secret=os.environ.get('nlg-QoHb6f3yGtldWCs-Qlt019s'),
-    secure=True
-)
+# Cloudinary stores uploaded images. Set these three values in your local
+# environment and in Render; do not put their actual values in this file.
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
+    "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
+    "SECURE": True,
+}
 
 
 # Render terminates HTTPS before forwarding requests to this application.
