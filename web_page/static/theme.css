@@ -42,6 +42,28 @@
   --nav-active: #0d6efd;
   --primary-link: #0b5ed7;
   --nav-toggler-filter: none;
+
+  /* Neumorphic shadows: light from the top-left, shade to the bottom-right.
+   * Tuned against --page-bg (#f8f6f0) so surfaces look pressed out of it. */
+  --neu-out:
+    9px 9px 18px rgba(203, 195, 178, 0.65),
+    -9px -9px 18px rgba(255, 255, 255, 0.95);
+  --neu-out-sm:
+    5px 5px 10px rgba(203, 195, 178, 0.6),
+    -5px -5px 10px rgba(255, 255, 255, 0.9);
+  --neu-out-hover:
+    12px 12px 24px rgba(203, 195, 178, 0.72),
+    -12px -12px 24px rgba(255, 255, 255, 1);
+  --neu-in:
+    inset 6px 6px 12px rgba(203, 195, 178, 0.55),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.85);
+  --neu-in-focus:
+    inset 6px 6px 12px rgba(203, 195, 178, 0.55),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.85),
+    0 0 0 0.25rem rgba(201, 154, 46, 0.2);
+  --neu-pressed:
+    inset 4px 4px 8px rgba(203, 195, 178, 0.65),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.9);
 }
 
 body {
@@ -460,6 +482,154 @@ footer .text-secondary {
   border-top: 1px solid var(--glass-border);
   -webkit-backdrop-filter: var(--glass-blur-strong);
   backdrop-filter: var(--glass-blur-strong);
+}
+
+/* ==================================================================== *
+ * Light mode neumorphism
+ *
+ * Scoped to [data-theme="light"]. Surfaces share the page background and
+ * get paired shadows (bright top-left, soft bottom-right) so they look
+ * extruded; inputs and pressed states use inset shadows to look sunken.
+ * Borders are dropped, because outlines break the effect.
+ * ==================================================================== */
+
+[data-theme="light"] body {
+  background-color: var(--page-bg);
+}
+
+/* Raised surfaces ------------------------------------------------------- */
+
+[data-theme="light"] .card,
+[data-theme="light"] .stat-box,
+[data-theme="light"] .stat-box.bg-white,
+[data-theme="light"] .accordion-item,
+[data-theme="light"] .modal-content,
+[data-theme="light"] .theme-toggle,
+[data-theme="light"] .gallery-item,
+[data-theme="light"] .navbar-toggler,
+[data-theme="light"] .floating-btn.call {
+  background-color: var(--page-bg) !important;
+  border-color: transparent !important;
+  box-shadow: var(--neu-out) !important;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+[data-theme="light"] .card,
+[data-theme="light"] .stat-box,
+[data-theme="light"] .accordion-item {
+  border-radius: 1rem !important;
+}
+
+[data-theme="light"] .service-card {
+  overflow: hidden;
+}
+
+[data-theme="light"] .service-card:hover,
+[data-theme="light"] .stat-box:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--neu-out-hover) !important;
+}
+
+[data-theme="light"] .step-number {
+  background-color: var(--page-bg);
+  color: var(--primary-link);
+  box-shadow: var(--neu-out-sm);
+}
+
+/* A neumorphic toggle sits flush with the page, so it reads as its own disc. */
+[data-theme="light"] .theme-toggle:hover {
+  color: #c99a2e;
+  transform: translateY(0);
+  box-shadow: var(--neu-out-sm) !important;
+}
+
+[data-theme="light"] .theme-toggle:active,
+[data-theme="light"] .navbar-toggler:active {
+  box-shadow: var(--neu-pressed) !important;
+}
+
+/* Navigation: a soft lip under the sticky bar instead of a flat border. */
+[data-theme="light"] .navbar.bg-white {
+  background-color: var(--page-bg) !important;
+  box-shadow:
+    0 6px 18px rgba(203, 195, 178, 0.5),
+    0 -6px 14px rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="light"] .navbar .nav-link {
+  border-radius: 0.6rem;
+  transition:
+    box-shadow 0.25s ease,
+    color 0.2s ease;
+}
+
+/* The active nav item looks pressed into the bar. */
+[data-theme="light"] .navbar-nav .nav-link.active {
+  box-shadow: var(--neu-in);
+  padding-inline: 0.75rem;
+}
+
+@media (max-width: 991.98px) {
+  [data-theme="light"] .offcanvas {
+    background-color: var(--page-bg) !important;
+    border-left: 0 !important;
+    box-shadow: -10px 0 24px rgba(203, 195, 178, 0.6);
+  }
+}
+
+/* Forms: sunken wells ---------------------------------------------------- */
+
+[data-theme="light"] .form-control {
+  background-color: var(--page-bg);
+  border: 0;
+  border-radius: 0.85rem;
+  box-shadow: var(--neu-in);
+  transition: box-shadow 0.25s ease;
+}
+
+[data-theme="light"] .form-control:focus {
+  background-color: var(--page-bg);
+  border: 0;
+  box-shadow: var(--neu-in-focus);
+}
+
+/* Accordion ------------------------------------------------------------- */
+
+[data-theme="light"] .accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-btn-bg: transparent;
+  --bs-accordion-body-bg: transparent;
+  --bs-accordion-border-color: transparent;
+  --bs-accordion-border-width: 0;
+}
+
+[data-theme="light"] .accordion-item {
+  margin-bottom: 0.85rem;
+  overflow: hidden;
+}
+
+[data-theme="light"] .accordion-button {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+[data-theme="light"] .accordion-button:not(.collapsed) {
+  background-color: #efe3c4;
+  color: #12100b;
+  box-shadow: var(--neu-pressed);
+}
+
+[data-theme="light"] .accordion-button:focus {
+  box-shadow: inset 0 0 0 0.15rem rgba(201, 154, 46, 0.35);
+}
+
+/* Modal ---------------------------------------------------------------- */
+
+[data-theme="light"] .modal-content {
+  border-radius: 1.25rem;
 }
 
 /* Browsers without backdrop-filter: fall back to solid, readable panels. */
