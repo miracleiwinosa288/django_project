@@ -1,0 +1,241 @@
+/* Shared light/dark theme styles for the public site.
+ *
+ * <html data-theme="dark"> is the default (see static/theme.js). The light
+ * overrides below flip the page to a light palette, working alongside — and
+ * overriding where needed — the Bootstrap utility classes used in home.html.
+ */
+
+:root,
+:root[data-theme="dark"] {
+  --page-bg: #0b0b0b;
+  --text: #f6f0df;
+  --heading: #fff9e8;
+  --muted: #b8ae98;
+  --surface: #1c1c1b;
+  --surface-raised: #242422;
+  --card-border: #39362d;
+  --line: #39362d;
+  --light-section: #151513;
+  --white-block: #1c1c1b;
+  --gallery-bg: #242422;
+  --nav-bg: #121211;
+  --nav-link: #b8ae98;
+  --nav-active: #f3c557;
+  --primary-link: #f3c557;
+  --nav-toggler-filter: invert(1) grayscale(1) brightness(1.6);
+}
+
+:root[data-theme="light"] {
+  --page-bg: #f8f6f0;
+  --text: #23201a;
+  --heading: #12100b;
+  --muted: #5f584a;
+  --surface: #ffffff;
+  --surface-raised: #f4efe4;
+  --card-border: #e2dccd;
+  --line: #e2dccd;
+  --light-section: #f1ede3;
+  --white-block: #ffffff;
+  --gallery-bg: #e9ecef;
+  --nav-bg: #ffffff;
+  --nav-link: #3a3428;
+  --nav-active: #0d6efd;
+  --primary-link: #0b5ed7;
+  --nav-toggler-filter: none;
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--text);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+body .text-body {
+  color: var(--text) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading);
+}
+
+.text-muted,
+body .text-muted {
+  color: var(--muted) !important;
+}
+
+a.text-muted,
+a.text-muted:hover {
+  color: var(--muted) !important;
+}
+
+/* Section backgrounds ------------------------------------------------ */
+
+.bg-light {
+  background-color: var(--light-section) !important;
+}
+
+.bg-white,
+.bg-white.offcanvas {
+  background-color: var(--white-block) !important;
+}
+
+.offcanvas {
+  background-color: var(--white-block);
+  color: var(--text);
+}
+
+hr.border-secondary {
+  border-color: var(--line) !important;
+}
+
+/* Navigation --------------------------------------------------------- */
+
+.navbar.bg-white {
+  background-color: var(--nav-bg) !important;
+}
+
+.navbar .nav-link {
+  color: var(--nav-link);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: var(--nav-active);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--nav-active) !important;
+}
+
+.navbar-toggler-icon {
+  filter: var(--nav-toggler-filter);
+}
+
+.navbar-toggler {
+  border-color: var(--card-border);
+}
+
+/* Cards, blocks and gallery ------------------------------------------ */
+
+.card {
+  background-color: var(--surface);
+  border-color: var(--card-border);
+  color: var(--text);
+}
+
+.card a {
+  color: var(--primary-link);
+}
+
+.stat-box {
+  background-color: var(--surface);
+  border: 1px solid var(--card-border);
+}
+
+.gallery-item {
+  background-color: var(--gallery-bg);
+}
+
+.service-card:hover {
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.28) !important;
+}
+
+/* Forms -------------------------------------------------------------- */
+
+.form-control {
+  background-color: var(--surface);
+  border-color: var(--card-border);
+  color: var(--text);
+}
+
+.form-control::placeholder {
+  color: var(--muted);
+}
+
+.form-control:focus {
+  background-color: var(--surface);
+  border-color: #c99a2e;
+  color: var(--text);
+  box-shadow: 0 0 0 0.25rem rgba(201, 154, 46, 0.2);
+}
+
+/* FAQ accordion ------------------------------------------------------ */
+
+.accordion {
+  --bs-accordion-bg: var(--surface);
+  --bs-accordion-color: var(--text);
+  --bs-accordion-border-color: var(--card-border);
+  --bs-accordion-btn-color: var(--text);
+  --bs-accordion-btn-bg: var(--surface);
+  --bs-accordion-active-bg: var(--heading);
+  --bs-accordion-active-color: var(--page-bg);
+  --bs-accordion-body-bg: var(--surface);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(201, 154, 46, 0.2);
+  --bs-accordion-icon-filter: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--heading);
+  color: var(--page-bg);
+}
+
+[data-theme="light"] .accordion-button:not(.collapsed) {
+  background-color: #efe3c4;
+  color: #12100b;
+}
+
+[data-theme="light"] .accordion-body {
+  color: var(--text) !important;
+}
+
+/* Modal -------------------------------------------------------------- */
+
+.modal-content {
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+/* Theme toggle button ------------------------------------------------ */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  flex-shrink: 0;
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  background-color: var(--surface);
+  color: var(--heading);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: #c99a2e;
+  transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid rgba(201, 154, 46, 0.45);
+  outline-offset: 2px;
+}
+
+/* Footer stays dark in both themes, so its text keeps fixed colours. */
+footer .text-secondary {
+  color: #b8ae98 !important;
+}
