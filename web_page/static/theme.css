@@ -235,7 +235,244 @@ hr.border-secondary {
   outline-offset: 2px;
 }
 
+/* Dark mode shows the sun ("go light"), light mode shows the moon. */
+.theme-toggle .theme-icon-moon,
+[data-theme="light"] .theme-toggle .theme-icon-sun {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .theme-icon-moon {
+  display: inline-block;
+}
+
 /* Footer stays dark in both themes, so its text keeps fixed colours. */
 footer .text-secondary {
   color: #b8ae98 !important;
+}
+
+/* ==================================================================== *
+ * Dark mode glassmorphism
+ *
+ * Everything below is scoped to [data-theme="dark"], so light mode keeps
+ * its flat, solid look. A fixed glowing backdrop sits behind the page and
+ * every surface (navbar, cards, stats, accordion, forms, modal, footer…)
+ * becomes frosted, translucent glass that blurs it.
+ * ==================================================================== */
+
+:root[data-theme="dark"] {
+  --glass-bg: rgba(255, 255, 255, 0.055);
+  --glass-bg-hover: rgba(255, 255, 255, 0.085);
+  --glass-bg-strong: rgba(20, 20, 18, 0.58);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-strong: rgba(243, 197, 87, 0.35);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.38);
+  --glass-blur: blur(16px) saturate(160%);
+  --glass-blur-strong: blur(24px) saturate(180%);
+}
+
+/* Glowing backdrop for the glass to blur. Fixed so it stays put while the
+ * page scrolls; drawn on a pseudo-element to avoid background-attachment
+ * issues on mobile Safari. */
+[data-theme="dark"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(38rem 38rem at 8% 12%, rgba(243, 197, 87, 0.2), transparent 65%),
+    radial-gradient(34rem 34rem at 92% 30%, rgba(13, 110, 253, 0.18), transparent 65%),
+    radial-gradient(40rem 40rem at 70% 95%, rgba(32, 201, 151, 0.13), transparent 65%),
+    radial-gradient(30rem 30rem at 15% 80%, rgba(201, 154, 46, 0.12), transparent 65%),
+    var(--page-bg);
+}
+
+/* Sections become transparent so the backdrop shows through. */
+[data-theme="dark"] .bg-light {
+  background-color: rgba(255, 255, 255, 0.015) !important;
+}
+
+/* Shared glass surface -------------------------------------------------- */
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .stat-box,
+[data-theme="dark"] .stat-box.bg-white,
+[data-theme="dark"] .accordion-item,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .theme-toggle {
+  background-color: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow) !important;
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .stat-box {
+  border-radius: 1rem;
+}
+
+[data-theme="dark"] .service-card {
+  overflow: hidden;
+}
+
+[data-theme="dark"] .service-card:hover,
+[data-theme="dark"] .stat-box:hover {
+  background-color: var(--glass-bg-hover) !important;
+  border-color: var(--glass-border-strong) !important;
+  box-shadow:
+    var(--glass-highlight),
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(243, 197, 87, 0.12) !important;
+}
+
+[data-theme="dark"] .stat-box {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Navigation ------------------------------------------------------------ */
+
+/* The glass lives on ::before: a backdrop-filter directly on .navbar would
+ * make it the containing block for the fixed-position mobile offcanvas
+ * menu and trap the menu inside the navbar bar. */
+[data-theme="dark"] .navbar.bg-white {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+[data-theme="dark"] .navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(14, 14, 13, 0.55);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  backdrop-filter: var(--glass-blur-strong);
+}
+
+/* Mobile slide-out menu (below lg it is a fixed panel). */
+@media (max-width: 991.98px) {
+  [data-theme="dark"] .offcanvas {
+    background-color: var(--glass-bg-strong);
+    border-left: 1px solid var(--glass-border) !important;
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.45);
+    -webkit-backdrop-filter: var(--glass-blur-strong);
+    backdrop-filter: var(--glass-blur-strong);
+  }
+}
+
+[data-theme="dark"] .navbar-toggler {
+  border-color: var(--glass-border);
+  background-color: var(--glass-bg);
+}
+
+/* Accordion ------------------------------------------------------------- */
+
+[data-theme="dark"] .accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-btn-bg: transparent;
+  --bs-accordion-body-bg: transparent;
+  --bs-accordion-border-color: var(--glass-border);
+}
+
+[data-theme="dark"] .accordion-item {
+  margin-bottom: 0.75rem;
+  border-radius: 1rem !important;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .accordion-button {
+  background-color: transparent;
+  color: var(--text);
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+  background-color: rgba(243, 197, 87, 0.14);
+  color: var(--nav-active);
+  box-shadow: inset 0 -1px 0 var(--glass-border);
+}
+
+[data-theme="dark"] .accordion-button::after {
+  filter: invert(1) grayscale(1) brightness(1.6);
+}
+
+/* Forms ----------------------------------------------------------------- */
+
+[data-theme="dark"] .form-control {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.75rem;
+  box-shadow: var(--glass-highlight);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--glass-border-strong);
+  box-shadow:
+    var(--glass-highlight),
+    0 0 0 0.25rem rgba(201, 154, 46, 0.2);
+}
+
+/* Small accents --------------------------------------------------------- */
+
+[data-theme="dark"] .step-number {
+  background-color: rgba(243, 197, 87, 0.14);
+  border: 1px solid var(--glass-border-strong);
+  color: var(--nav-active);
+  box-shadow: var(--glass-highlight), 0 0 18px rgba(243, 197, 87, 0.18);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+[data-theme="dark"] .floating-btn.call {
+  background-color: rgba(20, 20, 18, 0.55);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+[data-theme="dark"] .gallery-item {
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+[data-theme="dark"] .modal-content {
+  background-color: var(--glass-bg-strong) !important;
+  border-radius: 1.25rem;
+}
+
+[data-theme="dark"] .modal-backdrop.show {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* Footer: frosted panel over the glow (overrides its inline colour). */
+[data-theme="dark"] footer {
+  background-color: rgba(10, 10, 9, 0.55) !important;
+  border-top: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  backdrop-filter: var(--glass-blur-strong);
+}
+
+/* Browsers without backdrop-filter: fall back to solid, readable panels. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  [data-theme="dark"] .card,
+  [data-theme="dark"] .stat-box,
+  [data-theme="dark"] .accordion-item,
+  [data-theme="dark"] .modal-content,
+  [data-theme="dark"] .form-control {
+    background-color: rgba(28, 28, 27, 0.92) !important;
+  }
+
+  [data-theme="dark"] .navbar::before {
+    background-color: rgba(18, 18, 17, 0.96);
+  }
 }

@@ -40,6 +40,8 @@
 
   function applyTheme(theme) {
     root.setAttribute("data-theme", theme);
+    // Keep Bootstrap 5.3's own colour mode (btn-close, form controls…) in sync.
+    root.setAttribute("data-bs-theme", theme);
     root.style.colorScheme = theme;
     document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
       var isDark = theme === "dark";
